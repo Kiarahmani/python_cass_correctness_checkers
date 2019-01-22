@@ -2,7 +2,7 @@ from cassandra.cluster import Cluster
 import sys
 
 
-toolbar_width = 1
+toolbar_width = 10
 
 print ""
 # setup toolbar
@@ -14,7 +14,7 @@ sys.stdout.write("\b" * (toolbar_width+1)) # return to start of line, after '['
 cluster = Cluster(["n2"])
 session = cluster.connect("tpcc")
 
-districts = session.execute('SELECT d_id  FROM district where d_w_id=1 and d_id=10')
+districts = session.execute('SELECT d_id  FROM district where d_w_id=1')
 i = 0
 result = [True] * 100
 for district in districts:

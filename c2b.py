@@ -1,6 +1,6 @@
 import sys
 
-toolbar_width = 1
+toolbar_width = 10
 
 print ""
 # setup toolbar
@@ -13,7 +13,7 @@ from cassandra.cluster import Cluster
 cluster = Cluster(["n2"])
 session = cluster.connect("tpcc")
 
-districts = session.execute('SELECT d_id,d_next_o_id FROM district where d_w_id=1 and d_id=10')
+districts = session.execute('SELECT d_id,d_next_o_id FROM district where d_w_id=1')
 i = 0
 result = [True] * 100
 for district in districts:
@@ -27,6 +27,7 @@ for district in districts:
         max_o_id = order[0]
     #print "max_no_id   =" + str(max_o_id)
     result[i] = (max_o_id==expected_o_id)
+    #print result[i]
     i = i+1
     sys.stdout.write("-")
     sys.stdout.flush()

@@ -13,7 +13,7 @@ sys.stdout.write("\b" * (toolbar_width+1)) # return to start of line, after '['
 cluster = Cluster(["n2"])
 session = cluster.connect("tpcc")
 
-districts = session.execute('SELECT d_id  FROM district where d_w_id=1 and d_id=10')
+districts = session.execute('SELECT d_id  FROM district where d_w_id=1 ')
 i = 0
 result = [True] * 100
 for district in districts:
@@ -28,8 +28,8 @@ for district in districts:
     for order in orders:
         max_o_id = order[0]
     #print "max_o_id    =" + str(max_o_id)
-
     result[i] = (max_o_id==max_no_id)
+    #print result[i]
     i = i+1;
     sys.stdout.write("-")
     sys.stdout.flush()
