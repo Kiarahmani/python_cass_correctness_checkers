@@ -30,13 +30,15 @@ for district in districts:
             order_line_count=order_line[0]
         result[i] = (result[i]) and (o_ol_cnt==order_line_count)
         if o_ol_cnt!=order_line_count:
-            print ""
-            print "d_id:",d_id
-            print "o_id:", o_id
-            print "o_ol_cnt:",o_ol_cnt
-            print "order_line_count",order_line_count
-            print ""
+            #print ""
+            #print "d_id:",d_id
+            #print "o_id:", o_id
+            #print "o_ol_cnt:",o_ol_cnt
+            #print "order_line_count",order_line_count
+            #print ""
             break
+    if result[i]==False:
+        break
     i=i+1
     sys.stdout.write("-")
     sys.stdout.flush()

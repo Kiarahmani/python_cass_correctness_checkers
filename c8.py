@@ -27,6 +27,7 @@ for warehouse in warehouses:
         sum_h_amount = history[0]
     #print "sum(h_amount) =",sum_h_amount
     #print result[i]
+    result[i] = (sum_h_amount==w_ytd)
     i=i+1
     sys.stdout.write("-")
     sys.stdout.flush()

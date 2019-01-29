@@ -26,6 +26,7 @@ for district in districts:
     for history in histories:
         sum_h_amount = history[0]
     #print "sum(h_amount) =",sum_h_amount
+    result[i] = (d_ytd==sum_h_amount)
     i=i+1
     sys.stdout.write("-")
     sys.stdout.flush()

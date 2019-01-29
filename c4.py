@@ -21,6 +21,7 @@ i = 0
 result = [True] * 100
 for district in districts:
     d_id=district.d_id
+    #print ""
     #print "district #" + str(d_id)
     
     orderlines = session.execute('select count(*) from ORDER_LINE where OL_D_ID=' + str(d_id) + ' ALLOW FILTERING')
@@ -33,6 +34,7 @@ for district in districts:
         sum_o_ol_cnt = order[0]
     #print "sum_o_ol_cnt     =" + str(sum_o_ol_cnt)
     result[i] = (sum_o_ol_cnt==count_order_line)
+    #print  result[i]
     i = i+1
     sys.stdout.write("-")
     sys.stdout.flush()

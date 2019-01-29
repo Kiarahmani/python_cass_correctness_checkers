@@ -26,7 +26,7 @@ for district in districts:
         c_ytd_payment=customer.c_ytd_payment
         c_balance=customer.c_balance
         expected_total = c_balance+c_ytd_payment
-        orders = session.execute('select o_id from oorder  WHERE o_w_id=1 and o_d_id='+str(d_id)+' and o_c_id='+str(c_id))
+        orders = session.execute('select o_id from oorder  WHERE o_w_id=1 and o_d_id='+str(d_id)+' and o_c_id='+str(c_id)+' ALLOW FILTERING')
         total=0;
         for order in orders:
             o_id=order.o_id
@@ -38,6 +38,8 @@ for district in districts:
             result[i]=False
             break
     #print result[i]
+    if result[i]==False:
+        break
     sys.stdout.write("-")
     sys.stdout.flush()
     i=i+1

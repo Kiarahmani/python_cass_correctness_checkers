@@ -1,6 +1,6 @@
 from cassandra.cluster import Cluster
 import sys
-toolbar_width = 1
+toolbar_width = 10
 
 
 print ""
@@ -22,6 +22,8 @@ i = 0
 districts = session.execute('SELECT d_id  FROM district where d_w_id=1')
 for district in districts:
     d_id=district.d_id
+    #print ""
+    #print "district: ",d_id
     orders = session.execute('select count(*) from oorder where o_w_id=1 and o_d_id='+str(d_id)) 
     for order in orders:
         order_count = order[0]
